@@ -14,6 +14,7 @@ namespace BudgetApp.Data.Models
     {
         public long Id { get; set; }
         public User UserName { get; set; }
+        public string AccountName { get; set; }
         public AccountType AccountType { get; set; }
         public decimal AccountBalance { get; set; }
     }

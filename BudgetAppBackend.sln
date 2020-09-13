@@ -4,8 +4,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BudgetAppBackend.web", "BudgetAppBackend.web\BudgetAppBackend.web.csproj", "{D6996A0C-8E57-4E41-BE42-821AED5D4001}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4C8DF474-0037-4AD2-B500-118297BC2E55} = {4C8DF474-0037-4AD2-B500-118297BC2E55}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BudgetApp.Data", "BudgetApp.Data\BudgetApp.Data.csproj", "{4C8DF474-0037-4AD2-B500-118297BC2E55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BudgetAppBackend.Service", "BudgetAppBackend.Service\BudgetAppBackend.Service.csproj", "{978ADD34-16F6-4990-890B-DCB1BFB59255}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +26,10 @@ Global
 		{4C8DF474-0037-4AD2-B500-118297BC2E55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C8DF474-0037-4AD2-B500-118297BC2E55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C8DF474-0037-4AD2-B500-118297BC2E55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{978ADD34-16F6-4990-890B-DCB1BFB59255}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{978ADD34-16F6-4990-890B-DCB1BFB59255}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{978ADD34-16F6-4990-890B-DCB1BFB59255}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{978ADD34-16F6-4990-890B-DCB1BFB59255}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
