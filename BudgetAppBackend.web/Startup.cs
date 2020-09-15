@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BudgetApp.Data.Context;
+using BudgetAppBackend.Service.Concretes;
+using BudgetAppBackend.Service.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +34,7 @@ namespace BudgetAppBackend.web
                 {
                     options.MigrationsAssembly("BudgetApp.Data");
                 }));
+            services.AddScoped<IUsersRepository, UsersRepository>();
             services.AddControllers();
         }
 

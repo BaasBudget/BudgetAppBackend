@@ -12,6 +12,6 @@ namespace BudgetAppBackend.Service.Interfaces
 
         Task UpdateUserBalance(User user);
 
-        Task<IEnumerable<User>> GetUserByName(string name);
+        Task<User> GetUserByName(string name);
     }
 }

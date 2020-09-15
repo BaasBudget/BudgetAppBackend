@@ -18,12 +18,11 @@ namespace BudgetApp.Data.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
             // Should resolve the one to many relationship between users and accounts. Not sure it does though 
             modelBuilder.Entity<Account>()
-                .HasOne(a => a.UserName)
-                .WithMany()
-                .HasForeignKey(u => u.Id)
-                .IsRequired();
+                .HasOne(a => a.User)
+                .WithMany(u => u.UserAccounts);
 
             // Similar to the statement above should resolve a one to many relationships one account can have many transactions 
             modelBuilder.Entity<Transaction>()

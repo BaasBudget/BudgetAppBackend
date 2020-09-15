@@ -19,6 +19,7 @@ namespace BudgetApp.Data.Migrations
             modelBuilder.Entity("BudgetApp.Data.Models.Account", b =>
                 {
                     b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<decimal>("AccountBalance")
@@ -30,12 +31,12 @@ namespace BudgetApp.Data.Migrations
                     b.Property<int>("AccountType")
                         .HasColumnType("INTEGER");
 
-                    b.Property<long?>("UserId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("UserName")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserName");
 
                     b.ToTable("Accounts");
                 });
@@ -55,14 +56,14 @@ namespace BudgetApp.Data.Migrations
                     b.Property<int>("Month")
                         .HasColumnType("INTEGER");
 
-                    b.Property<long?>("UserId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("UserName")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CatagoryId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserName");
 
                     b.ToTable("BudgetItems");
                 });
@@ -92,44 +93,34 @@ namespace BudgetApp.Data.Migrations
                     b.Property<DateTime>("Time")
                         .HasColumnType("TEXT");
 
-                    b.Property<long?>("UserId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("UserName")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserName");
 
                     b.ToTable("Transactions");
                 });
 
             modelBuilder.Entity("BudgetApp.Data.Models.User", b =>
                 {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("UserName")
+                        .HasColumnType("TEXT");
 
                     b.Property<decimal>("TotalBalance")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("UserName")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
+                    b.HasKey("UserName");
 
                     b.ToTable("Users");
                 });
 
             modelBuilder.Entity("BudgetApp.Data.Models.Account", b =>
                 {
-                    b.HasOne("BudgetApp.Data.Models.User", "UserName")
-                        .WithMany()
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BudgetApp.Data.Models.User", null)
+                    b.HasOne("BudgetApp.Data.Models.User", "User")
                         .WithMany("UserAccounts")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserName");
                 });
 
             modelBuilder.Entity("BudgetApp.Data.Models.BudgetItem", b =>
@@ -140,7 +131,7 @@ namespace BudgetApp.Data.Migrations
 
                     b.HasOne("BudgetApp.Data.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserName");
                 });
 
             modelBuilder.Entity("BudgetApp.Data.Models.Transaction", b =>
@@ -159,7 +150,7 @@ namespace BudgetApp.Data.Migrations
 
                     b.HasOne("BudgetApp.Data.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserName");
                 });
 #pragma warning restore 612, 618
         }
